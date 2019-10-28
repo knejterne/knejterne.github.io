@@ -9,7 +9,12 @@ body {
     padding: 0;
     background-color: rgb(20,20,100);
     height: 10vh;
-    
+    width: 100vw;
+    position: fixed;
+}
+#common {
+    position: absolute;
+    top: 10vh;
 }
 .buttons {
     border: none;
@@ -20,6 +25,9 @@ body {
     background: rgb(70,70,150);
     font-size: large;
     font-weight: bold;
+    border-top-left-radius: 0.7vh;
+    border-top-right-radius: 0.7vh;
+    transition: 0.7s;
 }
 .buttons:hover {
     background: rgb(90, 90, 180);
@@ -34,6 +42,7 @@ body {
     border-radius: 1vh;
     background: rgb(70,70,150);
     font-size: x-large;
+    transition: 0.7s;
 }
 .shapebuttons:hover {
     background: rgb(90, 90, 180);
