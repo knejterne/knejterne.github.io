@@ -15,7 +15,7 @@ var areallist=[
         formulas: [
             {
                 info: ["Radius"],
-                formula: "pi*Radius*Radius"
+                formula: "pi*pow(Radius,2)"
             },
             {
                 info: ["Diameter"],
@@ -28,7 +28,7 @@ var areallist=[
         formulas: [
             {
                 info: ["a", "c", "Højde"],
-                formula: ["1/2*(a+c)*Højde"]
+                formula: "1/2*(a+c)*Højde"
             }
         ]
     },
@@ -37,10 +37,10 @@ var areallist=[
         formulas: [
             {
                 info: ["Grader", "Radius"],
-                formula: ["1/2*pow(Radius,2)*(Grader/180*pi-sin(Grader/180*pi))"]
+                formula: "1/2*pow(Radius,2)*(Grader/180*pi-sin(Grader/180*pi))"
             },{
                 info: ["Radianer", "Radius"],
-                formula: ["1/2*pow(Radius,2)*(Radianer-sin(Radianer))"]
+                formula: "1/2*pow(Radius,2)*(Radianer-sin(Radianer))"
             }
         ]
     },
@@ -49,7 +49,7 @@ var areallist=[
         formulas: [
             {
                 info: ["Sidelængde", "Sider"],
-                formula: ["1/4*Sider*pow(Sidelængde,2)*atan(pi/Sider)"]
+                formula: "1/4*Sider*pow(Sidelængde,2)*atan(pi/Sider)"
             }
         ]
     },
@@ -58,20 +58,7 @@ var areallist=[
         formulas: [
             {
                 info: ["Indre radius", "Ydre radius"],
-                formula: ["pi*(pow(Ydre radius,2)-pow(Indre radius,2))"]
-            }
-        ]
-    },
-    {
-        name:"Cirkeludsnit",
-        formulas: [
-            {
-                info: ["Radius", "Radianer"],
-                formula: ["pow(Radius)*Radianer/2"]
-            },
-            {
-                info: ["Radius", "Grader"],
-                formula: ["pow(Radius)*Grader/180*pi/2"]
+                formula: "pi*(pow(Ydre radius,2)-pow(Indre radius,2))"
             }
         ]
     },
@@ -80,15 +67,15 @@ var areallist=[
         formulas: [
             {
                 info: ["b", "Højde"],
-                formula: ["b*Højde"]
+                formula: "b*Højde"
             },
             {
                 info: ["a", "b", "Radianer"],
-                formula: ["a*b*sin(Radianer)"]
+                formula: "a*b*sin(Radianer)"
             },
             {
                 info: ["a", "b", "Grader"],
-                formula: ["a*b*sin(Grader/180*pi)"]
+                formula: "a*b*sin(Grader/180*pi)"
             }
         ]
     },
@@ -97,15 +84,15 @@ var areallist=[
         formulas: [
             {
                 info: ["Diagonal 1", "Diagonal 2"],
-                formula: ["1/2*Diagonal 1*Diagonal 2"]
+                formula: "1/2*Diagonal 1*Diagonal 2"
             },
             {
                 info: ["a", "Radianer"],
-                formula: ["sin(Radianer)*pow(a,2)"]
+                formula: "sin(Radianer)*pow(a,2)"
             },
             {
                 info: ["a", "b", "Grader"],
-                formula: ["sin(Grader/180*pi)*pow(a,2)"]
+                formula: "sin(Grader/180*pi)*pow(a,2)"
             }
         ]
     },
@@ -114,7 +101,7 @@ var areallist=[
         formulas: [
             {
                 info: ["Højde", "Grundlinje"],
-                formula: ["Højde*Grundlinje/2"]
+                formula: "Højde*Grundlinje/2"
             }
         ]
     }
@@ -131,9 +118,23 @@ function draw() {
 }
 function loadShape(d, i) {
     document.getElementById("common").innerHTML="";
+    var print="";
     if(d=="areal") {
-        document.getElementById("common").innerHTML=areallist[i].name;
+        print+="<h1 style=\"margin-left: 20px;\">"+areallist[i].name+"</h1>";
+        print+="<div style=\"margin-left: 80px; width: 50vw;\"><hr>"
+        for(var j=0;j<areallist[i].formulas.length;j++) {
+            var shape=areallist[i].formulas[j];
+            print+="<b>"+shape.formula+"<br><br></b>";
+            for(var info=0;info<shape.info.length;info++) {
+                print+="<div>"+shape.info[info]+"<br><input type=\"text\" id=\""+i+"areal"+j+"info"+info+"\"></div><br>";
+            }
+            print+="<span id=\""+i+"arealspan"+j+"\"></span>";
+            print+="<button class=\"submitbutton\" onclick=\"calculate('areal',"+i+","+j+",'"+i+"areal"+j+"')\">Beregn</button>";
+            print+="<br><hr><br>";
+        }
+        print+="</div>"
     }
+    document.getElementById("common").innerHTML=print;
 }
 function loadSite(loadedSite) {
     site=loadedSite;
@@ -150,4 +151,17 @@ function loadSite(loadedSite) {
     }
     buttonHtml+="</center>";
     document.getElementById("common").innerHTML=buttonHtml;
+}
+function calculate(type, i, j, id) {
+    if(type="areal") {
+        var formula=areallist[i].formulas[j];
+        var newformula=formula.formula;
+        newformula=newformula.replace(new RegExp('pi', 'g'), ""+Math.PI);
+        for(var a=0;a<formula.info.length;a++) {
+            var inf=document.getElementById(i+"areal"+j+"info"+a);
+            inf=inf.value;
+            newformula=newformula.replace(new RegExp(formula.info[a], 'g'),inf);
+        }
+        document.getElementById(i+"arealspan"+j).innerHTML=eval(newformula)+"<br>";
+    }
 }

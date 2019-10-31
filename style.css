@@ -1,8 +1,18 @@
 body {
     margin: 0;
     padding: 0;
-    background: rgb(255, 240, 150);
-    
+    /*background: rgb(255, 240, 150);
+    */
+}
+.submitbutton {
+    border: none;
+    padding: 10px 20px;
+    background: rgb(70,70,150);
+    border-radius: 2vh;
+    transition: 0.7s;
+}
+.submitbutton:hover {
+    background: rgb(90, 90, 180);
 }
 .topline {
     margin: 0;
