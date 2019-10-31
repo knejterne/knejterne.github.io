@@ -110,7 +110,7 @@ var areallist=[
         ]
     },
     {
-        name:"RTrekant",
+        name:"Trekant",
         formulas: [
             {
                 info: ["Højde", "Grundlinje"],
