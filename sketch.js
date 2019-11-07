@@ -6,7 +6,8 @@ var areallist=[
         formulas: [
             {
                 info: ["Længde", "Højde"],
-                formula: "Længde*Højde"
+                formula: "Længde*Højde",
+                niceformula: "\\(Længde \\cdot Højde\\)"
             }
         ]
     },
@@ -15,11 +16,13 @@ var areallist=[
         formulas: [
             {
                 info: ["Radius"],
-                formula: "pi*pow(Radius,2)"
+                formula: "pi*pow(Radius,2)",
+                niceformula: "\\(\\pi \\cdot Radius^2\\)"
             },
             {
                 info: ["Diameter"],
-                formula: "pi*pow(Diameter/2,2)"
+                formula: "pi*pow(Diameter/2,2)",
+                niceformula: "\\(\\pi \\cdot \\frac{Diameter}{2}^2\\)"
             }
         ]
     },
@@ -28,7 +31,8 @@ var areallist=[
         formulas: [
             {
                 info: ["a", "c", "Højde"],
-                formula: "1/2*(a+c)*Højde"
+                formula: "1/2*(a+c)*Højde",
+                niceformula: "\\(\\frac{1}{2} \\cdot (a+c) \\cdot Højde\\)"
             }
         ]
     },
@@ -37,10 +41,12 @@ var areallist=[
         formulas: [
             {
                 info: ["Grader", "Radius"],
-                formula: "1/2*pow(Radius,2)*(Grader/180*pi-sin(Grader/180*pi))"
+                formula: "1/2*pow(Radius,2)*(Grader/180*pi-sin(Grader/180*pi))",
+                niceformula: "\\(\\frac{1}{2} \\cdot Radius^2 \\cdot (\\frac{Grader}{180} \\cdot \\pi - \\sin(\\frac{Grader}{180} \\cdot \\pi))\\)"
             },{
                 info: ["Radianer", "Radius"],
-                formula: "1/2*pow(Radius,2)*(Radianer-sin(Radianer))"
+                formula: "1/2*pow(Radius,2)*(Radianer-sin(Radianer))",
+                niceformula: "\\(\\frac{1}{2} \\cdot Radius^2 \\cdot (Radianer - \\sin(Radianer))\\)"
             }
         ]
     },
@@ -49,7 +55,8 @@ var areallist=[
         formulas: [
             {
                 info: ["Sidelængde", "Sider"],
-                formula: "1/4*Sider*pow(Sidelængde,2)*atan(pi/Sider)"
+                formula: "1/4*Sider*pow(Sidelængde,2)*atan(pi/Sider)",
+                niceformula: "\\(\\frac{1}{4} \\cdot Sider \\cdot Sidelængde^2 \\cdot \\tan^{-1}(\\frac{\\pi}{Sider})\\)"
             }
         ]
     },
@@ -57,8 +64,9 @@ var areallist=[
         name:"Cirkelring",
         formulas: [
             {
-                info: ["Indre radius", "Ydre radius"],
-                formula: "pi*(pow(Ydre radius,2)-pow(Indre radius,2))"
+                info: ["Indre Radius", "Ydre Radius"],
+                formula: "pi*(pow(Ydre Radius,2)-pow(Indre Radius,2))",
+                niceformula: "\\(\\pi \\cdot (Ydre\\text{ }Radius^2 - Indre\\text{ }Radius^2)\\)"
             }
         ]
     },
@@ -67,15 +75,18 @@ var areallist=[
         formulas: [
             {
                 info: ["b", "Højde"],
-                formula: "b*Højde"
+                formula: "b*Højde",
+                niceformula: "\\(b \\cdot Højde\\)"
             },
             {
                 info: ["a", "b", "Radianer"],
-                formula: "a*b*sin(Radianer)"
+                formula: "a*b*sin(Radianer)",
+                niceformula: "\\(a \\cdot b \\cdot \\sin(Radianer)\\)"
             },
             {
                 info: ["a", "b", "Grader"],
-                formula: "a*b*sin(Grader/180*pi)"
+                formula: "a*b*sin(Grader/180*pi)",
+                niceformula: "\\(a \\cdot b \\cdot \\sin(\\frac{Grader}{180} \\cdot \\pi)\\)"
             }
         ]
     },
@@ -84,15 +95,18 @@ var areallist=[
         formulas: [
             {
                 info: ["Diagonal 1", "Diagonal 2"],
-                formula: "1/2*Diagonal 1*Diagonal 2"
+                formula: "1/2*Diagonal 1*Diagonal 2",
+                niceformula: "\\(\\frac{1}{2} \\cdot Diagonal \\text{ } 1 \\cdot Diagonal \\text{ } 2\\)"
             },
             {
                 info: ["a", "Radianer"],
-                formula: "sin(Radianer)*pow(a,2)"
+                formula: "sin(Radianer)*pow(a,2)",
+                niceformula: "\\(\\sin(Radianer) \\cdot a^2\\)"
             },
             {
-                info: ["a", "b", "Grader"],
-                formula: "sin(Grader/180*pi)*pow(a,2)"
+                info: ["a", "Grader"],
+                formula: "sin(Grader/180*pi)*pow(a,2)",
+                niceformula: "\\(\\sin(\\frac{Grader}{180} \\cdot \\pi) \\cdot a^2\\)"
             }
         ]
     },
@@ -101,7 +115,8 @@ var areallist=[
         formulas: [
             {
                 info: ["Højde", "Grundlinje"],
-                formula: "Højde*Grundlinje/2"
+                formula: "Højde*Grundlinje/2",
+                niceformula: "\\(\\frac{Højde \\cdot Grundlinje}{2}\\)"
             }
         ]
     }
@@ -119,12 +134,14 @@ function draw() {
 function loadShape(d, i) {
     document.getElementById("common").innerHTML="";
     var print="";
+    var ids=[];
     if(d=="areal") {
         print+="<h1 style=\"margin-left: 20px;\">"+areallist[i].name+"</h1>";
         print+="<div style=\"margin-left: 80px; width: 50vw;\"><hr>"
         for(var j=0;j<areallist[i].formulas.length;j++) {
             var shape=areallist[i].formulas[j];
-            print+="<b>"+shape.formula+"<br><br></b>";
+            print+="<div id=\"mathjax"+i+"areal"+j+"\" class=\"mathdiv\">"+areallist[i].formulas[j].niceformula+"</div><br>";
+            ids[ids.length]="mathjax"+i+"areal"+j;
             for(var info=0;info<shape.info.length;info++) {
                 print+="<div>"+shape.info[info]+"<br><input type=\"text\" id=\""+i+"areal"+j+"info"+info+"\"></div><br>";
             }
@@ -135,6 +152,10 @@ function loadShape(d, i) {
         print+="</div>"
     }
     document.getElementById("common").innerHTML=print;
+    for(var i=0;i<ids.length;i++) {
+        MathJax.typesetClear();
+        MathJax.typeset([document.getElementById(ids[i])]);
+    }
 }
 function loadSite(loadedSite) {
     site=loadedSite;
