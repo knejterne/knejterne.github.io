@@ -21,6 +21,7 @@ body {
     height: 10vh;
     width: 100vw;
     position: fixed;
+    border-bottom-style: solid;
 }
 #common {
     position: absolute;
