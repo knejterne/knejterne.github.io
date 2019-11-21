@@ -17,12 +17,12 @@ var areallist=[
             {
                 info: ["Radius"],
                 formula: "'pi'*pow('Radius',2)",
-                niceformula: "\\(\\'pi' \\cdot 'Radius'^2\\)"
+                niceformula: "\\(\\pi \\cdot Radius^2\\)"
             },
             {
                 info: ["Diameter"],
                 formula: "'pi'*pow('Diameter'/2,2)",
-                niceformula: "\\(\\'pi' \\cdot \\frac{'Diameter'}{2}^2\\)"
+                niceformula: "\\(\\pi \\cdot \\frac{Diameter}{2}^2\\)"
             }
         ]
     },

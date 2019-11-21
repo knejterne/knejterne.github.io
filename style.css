@@ -61,5 +61,11 @@ body {
 .shapebuttons:hover {
     background: rgb(90, 90, 180);
 }
+#logoid {
+    height: 8vh;
+    transform: translate(0, 2vh);
+    margin-left: 1vh;
+    float: left;
+}
 .mathdiv {
 }
