@@ -166,6 +166,36 @@ var rumfanglist=[
                 niceformula: "\\(\\frac{'Højde' \\cdot 'Grundlinje'}{2}\\ cdot 'Prisme højde'\\)"
             }
         ]
+    },
+    {
+        name:"Pyramide",
+        formulas: [
+            {
+                info: ["Højde", "Grundflade"],
+                formula: "1/3*'Højde'*'Grundflade'",
+                niceformula: "\\(\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade\\)"
+            },
+            {
+                info: ["Højde","Sider","Sidelængde" ],
+                formula: "1/3*'Højde'*1/4*'Sider'*pow('Sidelængde',2)*atan('pi'/'Sider')",
+                //niceformula: "\\(\\frac{'Højde' \\cdot ''}{2}\\)"
+            }
+        ]
+    },
+    {
+        name:"Kegle",
+        formulas: [
+            {
+                info: ["Højde", "Grundflade"],
+                formula: "1/3*'Højde'*'Grundflade'",
+                niceformula: "\\(\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade\\)"
+            },
+            {
+                info: ["Højde","Sider","Sidelængde" ],
+                formula: "1/3*'Højde'*1/4*'Sider'*pow('Sidelængde',2)*atan('pi'/'Sider')",
+                //niceformula: "\\(\\frac{'Højde' \\cdot ''}{2}\\)"
+            }
+        ]
     }
 ]
 function setup() {
