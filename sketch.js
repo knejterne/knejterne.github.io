@@ -203,20 +203,18 @@ var rumfanglist=[
         ]
     }
 ];
+var enhedliste = [
+    {
+        name: "Længde"
+    }
+]
 var functions = [
     areallist,
     rumfanglist
 ];
 function setup() {
     noCanvas();
-    
-}
-function setup() {
-    noCanvas();
-    
-}
-function draw() {
-
+    noLoop();
 }
 function loadShape(loadedSite, i) {
     document.getElementById("common").innerHTML="";
@@ -284,4 +282,7 @@ function calculate(type, i, j, id) {
         }
         document.getElementById(i+"arealspan"+j).innerHTML=eval(newformula)+"<br>";
     }*/
+}
+function homepage() {
+    $("#common").load("home.html");
 }
