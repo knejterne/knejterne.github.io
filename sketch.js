@@ -7,7 +7,7 @@ var areallist=[
             {
                 info: ["Længde", "Højde"],
                 formula: "'Længde'*'Højde'",
-                niceformula: "\\('Længde' \\cdot 'Højde'\\)"
+                niceformula: "'Længde' \\cdot 'Højde'"
             }
         ]
     },
@@ -17,12 +17,12 @@ var areallist=[
             {
                 info: ["Radius"],
                 formula: "'pi'*pow('Radius',2)",
-                niceformula: "\\(\\pi \\cdot Radius^2\\)"
+                niceformula: "\\pi \\cdot 'Radius'^2"
             },
             {
                 info: ["Diameter"],
                 formula: "'pi'*pow('Diameter'/2,2)",
-                niceformula: "\\(\\pi \\cdot \\frac{Diameter}{2}^2\\)"
+                niceformula: "\\pi \\cdot \\frac{'Diameter'}{2}^2"
             }
         ]
     },
@@ -32,7 +32,7 @@ var areallist=[
             {
                 info: ["a", "c", "Højde"],
                 formula: "1/2*('a'+'c')*'Højde'",
-                niceformula: "\\(\\frac{1}{2} \\cdot ('a'+'c') \\cdot 'Højde'\\)"
+                niceformula: "\\frac{1}{2} \\cdot ('a'+'c') \\cdot 'Højde'"
             }
         ]
     },
@@ -42,11 +42,11 @@ var areallist=[
             {
                 info: ["Grader", "Radius"],
                 formula: "1/2*pow('Radius',2)*('Grader'/180*'pi'-sin('Grader'/180*'pi'))",
-                niceformula: "\\(\\frac{1}{2} \\cdot 'Radius'^2 \\cdot (\\frac{'Grader'}{180} \\cdot \\pi - \\sin(\\frac{'Grader'}{180} \\cdot \\pi))\\)"
+                niceformula: "\\frac{1}{2} \\cdot 'Radius'^2 \\cdot (\\frac{'Grader'}{180} \\cdot \\pi - \\sin(\\frac{'Grader'}{180} \\cdot \\pi))"
             },{
                 info: ["Radianer", "Radius"],
                 formula: "1/2*pow('Radius',2)*('Radianer'-sin('Radianer'))",
-                niceformula: "\\(\\frac{1}{2} \\cdot 'Radius'^2 \\cdot ('Radianer' - \\sin('Radianer'))\\)"
+                niceformula: "\\frac{1}{2} \\cdot 'Radius'^2 \\cdot ('Radianer' - \\sin('Radianer'))"
             }
         ]
     },
@@ -56,7 +56,7 @@ var areallist=[
             {
                 info: ["Sidelængde", "Sider"],
                 formula: "1/4*'Sider'*pow('Sidelængde',2)*atan('pi'/'Sider')",
-                niceformula: "\\(\\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'})\\)"
+                niceformula: "\\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'})"
             }
         ]
     },
@@ -66,7 +66,7 @@ var areallist=[
             {
                 info: ["Indre Radius", "Ydre Radius"],
                 formula: "'pi'*(pow('Ydre Radius',2)-pow('Indre Radius',2))",
-                niceformula: "\\(\\pi \\cdot ('Ydre Radius'^2 - 'Indre Radius'^2)\\)"
+                niceformula: "\\pi \\cdot ('Ydre Radius'^2 - 'Indre Radius'^2)"
             }
         ]
     },
@@ -76,17 +76,17 @@ var areallist=[
             {
                 info: ["b", "Højde"],
                 formula: "'b'*'Højde'",
-                niceformula: "\\('b' \\cdot 'Højde'\\)"
+                niceformula: "'b' \\cdot 'Højde'"
             },
             {
                 info: ["a", "b", "Radianer"],
                 formula: "'a'*'b'*sin('Radianer')",
-                niceformula: "\\('a' \\cdot 'b' \\cdot \\sin('Radianer')\\)"
+                niceformula: "'a' \\cdot 'b' \\cdot \\sin('Radianer')"
             },
             {
                 info: ["a", "b", "Grader"],
                 formula: "'a'*'b'*sin('Grader'/180*'pi')",
-                niceformula: "\\('a' \\cdot 'b' \\cdot \\sin(\\frac{'Grader'}{180} \\cdot \\pi)\\)"
+                niceformula: "'a' \\cdot 'b' \\cdot \\sin(\\frac{'Grader'}{180} \\cdot \\pi)"
             }
         ]
     },
@@ -96,17 +96,17 @@ var areallist=[
             {
                 info: ["Diagonal 1", "Diagonal 2"],
                 formula: "1/2*'Diagonal 1'*'Diagonal 2'",
-                niceformula: "\\(\\frac{1}{2} \\cdot 'Diagonal 1' \\cdot 'Diagonal 2'\\)"
+                niceformula: "\\frac{1}{2} \\cdot 'Diagonal 1' \\cdot 'Diagonal 2'"
             },
             {
                 info: ["a", "Radianer"],
                 formula: "sin('Radianer')*pow('a',2)",
-                niceformula: "\\(\\sin('Radianer') \\cdot 'a'^2\\)"
+                niceformula: "\\sin('Radianer') \\cdot 'a'^2"
             },
             {
                 info: ["a", "Grader"],
                 formula: "sin('Grader'/180*'pi')*pow('a',2)",
-                niceformula: "\\(\\sin(\\frac{'Grader'}{180} \\cdot \\pi) \\cdot 'a'^2\\)"
+                niceformula: "\\sin(\\frac{'Grader'}{180} \\cdot \\pi) \\cdot 'a'^2"
             }
         ]
     },
@@ -116,7 +116,7 @@ var areallist=[
             {
                 info: ["Højde", "Grundlinje"],
                 formula: "'Højde'*'Grundlinje'/2",
-                niceformula: "\\(\\frac{'Højde' \\cdot 'Grundlinje'}{2}\\)"
+                niceformula: "\\frac{'Højde' \\cdot 'Grundlinje'}{2}"
             }
         ]
     }
@@ -128,7 +128,7 @@ var rumfanglist=[
             {
                 info: ["Længde", "Højde","Bredde"],
                 formula: "'Længde'*'Højde'*'Bredde'",
-                niceformula: "\\('Længde' \\cdot 'Højde' \\cdot 'Bredde'\\)"
+                niceformula: "'Længde' \\cdot 'Højde' \\cdot 'Bredde'"
             }
         ]
     },
@@ -138,12 +138,12 @@ var rumfanglist=[
             {
                 info: ["Radius","Højde"],
                 formula: "'pi'*pow('Radius',2)*'Højde'",
-                niceformula: "\\(\\pi \\cdot 'Radius'^2\\ cdot 'Højde'\\)"
+                niceformula: "\\pi \\cdot 'Radius'^2\\ cdot 'Højde'"
             },
             {
                 info: ["Diameter","Højde"],
                 formula: "'pi'*pow('Diameter'/2,2)*'Højde'",
-                niceformula: "\\(\\pi \\cdot \\frac{'Diameter'}{2}^2\\ cdot 'Højde'\\)"
+                niceformula: "\\pi \\cdot \\frac{'Diameter'}{2}^2\\ cdot 'Højde'"
             }
         ]
     },
@@ -153,7 +153,7 @@ var rumfanglist=[
             {
                 info: ["Sidelængde", "Sider","Højde"],
                 formula: "1/4*'Sider'*pow('Sidelængde',2)*atan('pi'/'Sider')*'Højde'",
-                niceformula: "\\(\\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'})\\ cdot 'Højde'\\)"
+                niceformula: "\\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'})\\ cdot 'Højde'"
             }
         ]
     },
@@ -163,7 +163,7 @@ var rumfanglist=[
             {
                 info: ["Højde", "Grundlinje","Prisme højde"],
                 formula: "'Højde'*'Grundlinje'/2*'Prisme højde'",
-                niceformula: "\\(\\frac{'Højde' \\cdot 'Grundlinje'}{2}\\ cdot 'Prisme højde'\\)"
+                niceformula: "\\frac{'Højde' \\cdot 'Grundlinje'}{2}\\ cdot 'Prisme højde'"
             }
         ]
     },
@@ -173,12 +173,12 @@ var rumfanglist=[
             {
                 info: ["Højde", "Grundflade"],
                 formula: "1/3*'Højde'*'Grundflade'",
-                niceformula: "\\(\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade\\)"
+                niceformula: "\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade"
             },
             {
                 info: ["Højde","Sider","Sidelængde" ],
                 formula: "1/3*'Højde'*1/4*'Sider'*pow('Sidelængde',2)*atan('pi'/'Sider')",
-                niceformula: "\\(\\frac{1}{3} \\cdot 'Højde' \\cdot \\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'})\\)"
+                niceformula: "\\frac{1}{3} \\cdot 'Højde' \\cdot \\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'})"
             }
         ]
     },
@@ -188,17 +188,17 @@ var rumfanglist=[
             {
                 info: ["Højde", "Grundflade"],
                 formula: "1/3*'Højde'*'Grundflade'",
-                niceformula: "\\(\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade'\\)"
+                niceformula: "\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade'"
             },
             {
                 info: ["Højde","Radius"],
                 formula: "1/3*'pi'*pow('Radius',2)*'Højde'",
-                niceformula: "\\(\\frac{1}{3} \\cdot \\pi \\cdot 'Radius'^2 \\cdot 'Højde'\\)"
+                niceformula: "\\frac{1}{3} \\cdot \\pi \\cdot 'Radius'^2 \\cdot 'Højde'"
             },
             {
                 info: ["Højde","Diameter"],
                 formula: "1/3*'pi'*pow('Diameter'/2,2)*'Højde'",
-                niceformula: "\\(\\frac{1}{3} \\cdot \\pi \\cdot \\frac{'Diameter'}{2}^2 \\cdot 'Højde'\\)"
+                niceformula: "\\frac{1}{3} \\cdot \\pi \\cdot \\frac{'Diameter'}{2}^2 \\cdot 'Højde'"
             }
         ]
     }
@@ -229,7 +229,7 @@ function loadShape(loadedSite, i) {
         for(var info=0;info<l[i].formulas[j].info.length;info++) {
             niceformula=niceformula.replace(new RegExp("'"+l[i].formulas[j].info[info]+"'", "g"),l[i].formulas[j].info[info]);
         }
-        print+="<div id=\"mathjax"+i+"-"+loadedSite+"-"+j+"\" class=\"mathdiv\">"+niceformula+"</div><br>";
+        print+="<div id=\"mathjax"+i+"-"+loadedSite+"-"+j+"\" class=\"mathdiv\">\\("+niceformula+"\\)</div><br>";
         ids[ids.length]="mathjax"+i+"-"+loadedSite+"-"+j;
         for(var info=0;info<shape.info.length;info++) {
             print+="<div>"+shape.info[info]+"<br><input type=\"text\" id=\""+i+"-"+loadedSite+"-"+j+"info"+info+"\"></div><br>";
@@ -268,7 +268,7 @@ function calculate(type, i, j, id) {
         newformula=newformula.replace(new RegExp("'"+formula.info[a]+"'", 'g'),inf);
         niceformula=niceformula.replace(new RegExp("'"+formula.info[a]+"'", "g"), inf);
     }
-    document.getElementById(i+"-"+type+"span"+j).innerHTML="<div id=\"calculate"+i+"-"+type+"-"+j+"\">"+niceformula+" = "+eval(newformula)+"</div><br>"+"<br>";
+    document.getElementById(i+"-"+type+"span"+j).innerHTML="<div id=\"calculate"+i+"-"+type+"-"+j+"\">\\("+niceformula+" = "+eval(newformula)+"\\)</div><br>"+"<br>";
     MathJax.typesetClear();
     MathJax.typeset([document.getElementById("calculate"+i+"-"+type+"-"+j)]);
         /*else if(type=="rumfang") {
