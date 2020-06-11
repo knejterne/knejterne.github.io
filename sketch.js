@@ -138,12 +138,12 @@ var rumfanglist=[
             {
                 info: ["Radius","Højde"],
                 formula: "'pi'*pow('Radius',2)*'Højde'",
-                niceformula: "\\pi \\cdot 'Radius'^2\\ cdot 'Højde'"
+                niceformula: "\\pi \\cdot 'Radius'^2 \\cdot 'Højde'"
             },
             {
                 info: ["Diameter","Højde"],
                 formula: "'pi'*pow('Diameter'/2,2)*'Højde'",
-                niceformula: "\\pi \\cdot \\frac{'Diameter'}{2}^2\\ cdot 'Højde'"
+                niceformula: "\\pi \\cdot \\frac{'Diameter'}{2}^2 \\cdot 'Højde'"
             }
         ]
     },
@@ -153,7 +153,7 @@ var rumfanglist=[
             {
                 info: ["Sidelængde", "Sider","Højde"],
                 formula: "1/4*'Sider'*pow('Sidelængde',2)*atan('pi'/'Sider')*'Højde'",
-                niceformula: "\\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'})\\ cdot 'Højde'"
+                niceformula: "\\frac{1}{4} \\cdot 'Sider' \\cdot 'Sidelængde'^2 \\cdot \\tan^{-1}(\\frac{\\pi}{'Sider'}) \\cdot 'Højde'"
             }
         ]
     },
@@ -163,7 +163,7 @@ var rumfanglist=[
             {
                 info: ["Højde", "Grundlinje","Prisme højde"],
                 formula: "'Højde'*'Grundlinje'/2*'Prisme højde'",
-                niceformula: "\\frac{'Højde' \\cdot 'Grundlinje'}{2}\\ cdot 'Prisme højde'"
+                niceformula: "\\frac{'Højde' \\cdot 'Grundlinje'}{2} \\cdot 'Prisme højde'"
             }
         ]
     },
@@ -173,7 +173,7 @@ var rumfanglist=[
             {
                 info: ["Højde", "Grundflade"],
                 formula: "1/3*'Højde'*'Grundflade'",
-                niceformula: "\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade"
+                niceformula: "\\frac{1}{3} \\cdot 'Højde' \\cdot 'Grundflade'"
             },
             {
                 info: ["Højde","Sider","Sidelængde" ],
