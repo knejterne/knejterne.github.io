@@ -279,11 +279,11 @@ var enhedliste = [
             },
             {
                 name: "cm3",
-                value: "0.01"
+                value: "0.000001"
             },
             {
                 name: "dm3",
-                value: "0.1"
+                value: "0.001"
             },
             {
                 name: "m3",
@@ -291,15 +291,15 @@ var enhedliste = [
             },
             {
                 name: "dam3",
-                value: "10"
+                value: "1000"
             },
             {
                 name: "hm3",
-                value: "100"
+                value: "1000000"
             },
             {
                 name: "km3",
-                value: "1000"
+                value: "1000000000"
             }
         ]
     },
