@@ -339,7 +339,7 @@ function calculate(type, i, j, id) {
         }
         document.getElementById(i+"-"+type+"span"+j).innerHTML="<div id=\"calculate"+i+"-"+type+"-"+j+"\">\\("+niceformula+" = "+eval(newformula)+"\\)</div><br>"+"<br>";
     }else{
-        var v1 = l[]
+        
     }
     MathJax.typesetClear();
     MathJax.typeset([document.getElementById("calculate"+i+"-"+type+"-"+j)]);
