@@ -205,12 +205,64 @@ var rumfanglist=[
 ];
 var enhedliste = [
     {
-        name: "Længde"
+        name: "Længde",
+        list: [
+            {
+                name: "mm",
+                value: "0.001"
+            },
+            {
+                name: "cm",
+                value: "0.01"
+            },
+            {
+                name: "dm",
+                value: "0.1"
+            },
+            {
+                name: "m",
+                value: "1"
+            },
+            {
+                name: "dam",
+                value: "10"
+            },
+            {
+                name: "hm",
+                value: "100"
+            },
+            {
+                name: "km",
+                value: "1000"
+            }
+        ]
+    },
+    {
+        name: "Areal"
+    },
+    {
+        name: "Rumfang"
+    },
+    {
+        name: "Temperatur"
+    },
+    {
+        name: "Radianer - Grader"
+    },
+    {
+        name: "Tid"
+    },
+    {
+        name: "Vægt"
+    },
+    {
+        name: "Talsystemer"
     }
 ]
 var functions = [
     areallist,
-    rumfanglist
+    rumfanglist,
+    enhedliste
 ];
 function setup() {
     noCanvas();
@@ -223,19 +275,35 @@ function loadShape(loadedSite, i) {
     var l = functions[loadedSite];
     print+="<h1 style=\"margin-left: 20px;\">"+l[i].name+"</h1>";
     print+="<div style=\"margin-left: 80px; width: 50vw;\"><hr>"
-    for(var j=0;j<l[i].formulas.length;j++) {
-        var shape=l[i].formulas[j];
-        var niceformula=l[i].formulas[j].niceformula;
-        for(var info=0;info<l[i].formulas[j].info.length;info++) {
-            niceformula=niceformula.replace(new RegExp("'"+l[i].formulas[j].info[info]+"'", "g"),l[i].formulas[j].info[info]);
+    if(loadedSite!=2) {
+        for(var j=0;j<l[i].formulas.length;j++) {
+            var shape=l[i].formulas[j];
+            var niceformula=l[i].formulas[j].niceformula;
+            for(var info=0;info<l[i].formulas[j].info.length;info++) {
+                niceformula=niceformula.replace(new RegExp("'"+l[i].formulas[j].info[info]+"'", "g"),l[i].formulas[j].info[info]);
+            }
+            print+="<div id=\"mathjax"+i+"-"+loadedSite+"-"+j+"\" class=\"mathdiv\">\\("+niceformula+"\\)</div><br>";
+            ids[ids.length]="mathjax"+i+"-"+loadedSite+"-"+j;
+            for(var info=0;info<shape.info.length;info++) {
+                print+="<div>"+shape.info[info]+"<br><input type=\"text\" id=\""+i+"-"+loadedSite+"-"+j+"info"+info+"\"></div><br>";
+            }
+            print+="<span id=\""+i+"-"+loadedSite+"span"+j+"\"></span>";
+            print+="<button class=\"submitbutton\" onclick=\"calculate("+loadedSite+","+i+","+j+",'"+i+"-"+loadedSite+"-"+j+"')\">Beregn</button>";
+            print+="<br><hr><br>";
         }
-        print+="<div id=\"mathjax"+i+"-"+loadedSite+"-"+j+"\" class=\"mathdiv\">\\("+niceformula+"\\)</div><br>";
-        ids[ids.length]="mathjax"+i+"-"+loadedSite+"-"+j;
-        for(var info=0;info<shape.info.length;info++) {
-            print+="<div>"+shape.info[info]+"<br><input type=\"text\" id=\""+i+"-"+loadedSite+"-"+j+"info"+info+"\"></div><br>";
+    }else{
+        print+="<select name=\"1\" id=\"select1\">"
+        for(var a=0;a<l[i].list.length;a++) {
+            print+="<option value=\""+l[i].list[a].name+"\">"+l[i].list[a].name+"</option>";
         }
-        print+="<span id=\""+i+"-"+loadedSite+"span"+j+"\"></span>";
-        print+="<button class=\"submitbutton\" onclick=\"calculate("+loadedSite+","+i+","+j+",'"+i+"-"+loadedSite+"-"+j+"')\">Beregn</button>";
+        print+="</select>&nbsp;&nbsp;&nbsp;";
+        print+="<input type=\"text\" id=\"input\"><br><br>"
+        print+="<select name=\"2\" id=\"select2\">"
+        for(var b=0;b<l[i].list.length;b++) {
+            print+="<option value=\""+l[i].list[b].name+"\">"+l[i].list[b].name+"</option>";
+        }
+        print+="</select>&nbsp;&nbsp;&nbsp;  <span id=\"outputspan\"></span>;<br><br>";
+        print+="<button class=\"submitbutton\" onclick=\"calculate("+loadedSite+","+i+",1,1')\">Beregn</button>";
         print+="<br><hr><br>";
     }
     print+="</div>"
@@ -258,17 +326,21 @@ function loadSite(loadedSite) {
 }
 function calculate(type, i, j, id) {
     var l = functions[type];
-    var formula=l[i].formulas[j];
-    var newformula=formula.formula;
-    newformula=newformula.replace(new RegExp('pi', 'g'), ""+Math.PI);
-    var niceformula=l[i].formulas[j].niceformula;
-    for(var a=0;a<formula.info.length;a++) {
-        var inf=document.getElementById(i+"-"+type+"-"+j+"info"+a);
-        inf=inf.value;
-        newformula=newformula.replace(new RegExp("'"+formula.info[a]+"'", 'g'),inf);
-        niceformula=niceformula.replace(new RegExp("'"+formula.info[a]+"'", "g"), inf);
+    if(type!=2) {
+        var formula=l[i].formulas[j];
+        var newformula=formula.formula;
+        newformula=newformula.replace(new RegExp('pi', 'g'), ""+Math.PI);
+        var niceformula=l[i].formulas[j].niceformula;
+        for(var a=0;a<formula.info.length;a++) {
+            var inf=document.getElementById(i+"-"+type+"-"+j+"info"+a);
+            inf=inf.value;
+            newformula=newformula.replace(new RegExp("'"+formula.info[a]+"'", 'g'),inf);
+            niceformula=niceformula.replace(new RegExp("'"+formula.info[a]+"'", "g"), inf);
+        }
+        document.getElementById(i+"-"+type+"span"+j).innerHTML="<div id=\"calculate"+i+"-"+type+"-"+j+"\">\\("+niceformula+" = "+eval(newformula)+"\\)</div><br>"+"<br>";
+    }else{
+        var v1 = l[]
     }
-    document.getElementById(i+"-"+type+"span"+j).innerHTML="<div id=\"calculate"+i+"-"+type+"-"+j+"\">\\("+niceformula+" = "+eval(newformula)+"\\)</div><br>"+"<br>";
     MathJax.typesetClear();
     MathJax.typeset([document.getElementById("calculate"+i+"-"+type+"-"+j)]);
         /*else if(type=="rumfang") {
