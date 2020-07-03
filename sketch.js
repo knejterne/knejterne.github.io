@@ -302,8 +302,8 @@ function loadShape(loadedSite, i) {
         for(var b=0;b<l[i].list.length;b++) {
             print+="<option value=\""+l[i].list[b].name+"\">"+l[i].list[b].name+"</option>";
         }
-        print+="</select>&nbsp;&nbsp;&nbsp;  <span id=\"outputspan\"></span>;<br><br>";
-        print+="<button class=\"submitbutton\" onclick=\"calculate("+loadedSite+","+i+",1,1')\">Beregn</button>";
+        print+="</select>&nbsp;&nbsp;&nbsp;<span id=\"calculate"+i+"-"+2+"-"+0+"\"></span><br><br>";
+        print+="<button class=\"submitbutton\" onclick=\"calculate("+loadedSite+","+i+",0,1)\">Beregn</button>";
         print+="<br><hr><br>";
     }
     print+="</div>"
@@ -339,7 +339,10 @@ function calculate(type, i, j, id) {
         }
         document.getElementById(i+"-"+type+"span"+j).innerHTML="<div id=\"calculate"+i+"-"+type+"-"+j+"\">\\("+niceformula+" = "+eval(newformula)+"\\)</div><br>"+"<br>";
     }else{
-        
+        var v = parseFloat(document.getElementById("input").value);
+        var output = v * enhedliste[i].list[document.getElementById("select1").selectedIndex].value / enhedliste[i].list[document.getElementById("select2").selectedIndex].value;
+        document.getElementById("calculate"+i+"-"+2+"-"+j).innerText = "\\("+v+" \\cdot "+(enhedliste[i].list[document.getElementById("select1").selectedIndex].value / enhedliste[i].list[document.getElementById("select2").selectedIndex].value)+"="+output+"\\)";
+        console.log(output);
     }
     MathJax.typesetClear();
     MathJax.typeset([document.getElementById("calculate"+i+"-"+type+"-"+j)]);
