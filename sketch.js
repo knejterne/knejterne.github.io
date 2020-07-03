@@ -238,16 +238,86 @@ var enhedliste = [
         ]
     },
     {
-        name: "Areal"
+        name: "Areal",
+        list: [
+            {
+                name: "mm2",
+                value: "0.000001"
+            },
+            {
+                name: "cm2",
+                value: "0.0001"
+            },
+            {
+                name: "dm2",
+                value: "0.01"
+            },
+            {
+                name: "m2",
+                value: "1"
+            },
+            {
+                name: "dam2",
+                value: "100"
+            },
+            {
+                name: "hm2",
+                value: "10000"
+            },
+            {
+                name: "km2",
+                value: "1000000"
+            }
+        ]
     },
     {
-        name: "Rumfang"
+        name: "Rumfang",
+        list: [
+            {
+                name: "mm3",
+                value: "0.000000001"
+            },
+            {
+                name: "cm3",
+                value: "0.01"
+            },
+            {
+                name: "dm3",
+                value: "0.1"
+            },
+            {
+                name: "m3",
+                value: "1"
+            },
+            {
+                name: "dam3",
+                value: "10"
+            },
+            {
+                name: "hm3",
+                value: "100"
+            },
+            {
+                name: "km3",
+                value: "1000"
+            }
+        ]
     },
     {
         name: "Temperatur"
     },
     {
-        name: "Radianer - Grader"
+        name: "Radianer - Grader",
+        list: [
+            {
+                name: "Radianer",
+                value: 180/3.14159265359
+            },
+            {
+                name: "Grader",
+                value: 1
+            }
+        ]
     },
     {
         name: "Tid"
